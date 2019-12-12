@@ -1,10 +1,12 @@
 filebeat.config.modules:
-  # Glob pattern for configuration loading
   path: ${path.config}/modules.d/*.yml
-
-  # Set to true to enable config reloading
   reload.enabled: true
 
+<% if @kibana_url != [] -%>
+setup.kibana:
+  host: <%= @kibana_url %>
+
+<% end -%>
 filebeat:
   prospectors:
 <% @prospectors_array.each do | prospector | -%>

@@ -4,7 +4,7 @@ filebeat.config.modules:
 
 <% if @kibana_url != [] -%>
 setup.kibana:
-  host: <%= @kibana_url %>
+  host: '<%= @kibana_url %>'
 
 <% end -%>
 filebeat:

@@ -43,7 +43,9 @@ filebeat:
 
 <% if @modules -%>
 filebeat.config.modules:
-  path: "/etc/filebeat/modules.d/<%= @modules -%>.disabled"
+<% @modules_array.each do | _module | -%>
+  path: "/etc/filebeat/modules.d/<%= @_module -%>.yml.disabled"
+<% end -%>
 <% end -%>
 
 <% if @logstash_hosts != [] -%>

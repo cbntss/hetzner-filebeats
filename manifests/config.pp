@@ -46,6 +46,10 @@ class filebeats::config (
     }
   }
 
+  if !empty($modules) {
+    $modules_array = $modules
+  }
+
   if empty($prospectors) {
     validate_array($export_log_paths)
 

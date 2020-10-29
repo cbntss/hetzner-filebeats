@@ -44,7 +44,7 @@ filebeat:
 <% if @modules -%>
 filebeat.config.modules:
 <% @modules_array.each do | _module | -%>
-  path: "/etc/filebeat/modules.d/<%= @_module -%>.yml.disabled"
+  path: "/etc/filebeat/modules.d/<%= _module -%>.yml.disabled"
 <% end -%>
 <% end -%>
 

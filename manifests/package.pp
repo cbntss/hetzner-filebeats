@@ -13,7 +13,9 @@ class filebeats::package {
     'RedHat': {
       package {'filebeat':
         ensure  => present,
-        require => Class['::elastic_stack::repo']
+        if $manage_repo == true {
+            require => Class['::elastic_stack::repo']
+        }
       }
     }
     default: {

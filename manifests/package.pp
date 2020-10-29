@@ -1,7 +1,7 @@
 # Basic setup of filebeats repository and installtion
 # More Details see: https://www.elastic.co/guide/en/beats/libbeat/current/setup-repositories.html
 class filebeats::package (
-    $manage_repo =   $filebeats::manage_repo,
+    # $manage_repo =   $filebeats::manage_repo,
 ) {
   case $::osfamily {
     'Debian': {

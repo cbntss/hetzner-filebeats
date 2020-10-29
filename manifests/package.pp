@@ -3,21 +3,21 @@
 class filebeats::package {
   case $::osfamily {
     'Debian': {
+      if ($manage_repo == true) {
+          require => Class['::elastic_stack::repo']
+      }
       package {'filebeat':
         ensure  => present,
-        if ($manage_repo == true) {
-            require => Class['::elastic_stack::repo']
-        }
      }
      Class['apt::update'] -> Package['filebeat']
 
     }
     'RedHat': {
+      if ($manage_repo == true) {
+          require => Class['::elastic_stack::repo']
+      }
       package {'filebeat':
         ensure  => present,
-        if ($manage_repo == true) {
-            require => Class['::elastic_stack::repo']
-        }
       }
     }
     default: {

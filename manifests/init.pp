@@ -96,7 +96,7 @@ class filebeats (
   $logstash_ssl_certificate_key              = $filebeats::params::logstash_ssl_certificate_key,
   $logstash_ttl                              = $filebeats::params::logstash_ttl,
   $logstash_worker                           = $filebeats::params::logstash_worker,
-  Boolean                                    $manage_repo=true,
+  $manage_repo                               = $filebeats::params::manage_repo,
   $prospectors                               = $filebeats::params::prospectors,
   $service_bootstrapped                      = $filebeats::params::service_bootstrapped,
   $service_state                             = $filebeats::params::service_state,

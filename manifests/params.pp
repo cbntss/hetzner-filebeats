@@ -22,6 +22,7 @@ class filebeats::params {
   $logstash_ssl_certificate_authorities      = []
   $logstash_ssl_certificate_key              = ''
   $logstash_ttl                              = ''
+  $manage_repo                               = true
   $prospectors                               = []
   $service_bootstrapped                      = true
   $service_state                             = 'running'

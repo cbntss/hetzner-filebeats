@@ -4,7 +4,7 @@ class filebeats::package {
   case $::osfamily {
     'Debian': {
       if ($manage_repo == true) {
-          require => Class['::elastic_stack::repo']
+          Class['::elastic_stack::repo']
       }
       package {'filebeat':
         ensure  => present,
@@ -14,7 +14,7 @@ class filebeats::package {
     }
     'RedHat': {
       if ($manage_repo == true) {
-          require => Class['::elastic_stack::repo']
+          Class['::elastic_stack::repo']
       }
       package {'filebeat':
         ensure  => present,

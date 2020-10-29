@@ -29,6 +29,7 @@ class filebeats::config (
   Array   $logstash_ssl_certificate_authorities,
   String  $logstash_ssl_certificate_key,
   String  $logstash_ttl,
+  Array   $modules,
   Array   $prospectors,
 ){
   $config_path = $filebeats::params::config_path

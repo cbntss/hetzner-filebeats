@@ -40,8 +40,13 @@ filebeat:
 <% end -%>
 <% end -%>
   registry_file: /var/lib/filebeat/registry
-<% if @logstash_hosts != [] -%>
 
+<% if @module -%>
+filebeat.config.modules:
+  path: <%= @modules -%>
+<% end -%>
+
+<% if @logstash_hosts != [] -%>
 output.logstash:
   hosts: <%= @logstash_hosts %>
 <% if @logstash_loadbalance -%>

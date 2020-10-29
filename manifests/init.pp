@@ -107,7 +107,6 @@ class filebeats (
   }
 
   class {'::filebeats::package':
-    manage_repo         =>  $manage_repo
   }
 
   class {'::filebeats::service':

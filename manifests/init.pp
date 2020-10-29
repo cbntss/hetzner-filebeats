@@ -102,7 +102,7 @@ class filebeats (
   $service_state                             = $filebeats::params::service_state,
 ) inherits ::filebeats::params {
 
-  if $manage_repo == 'true' {
+  if ($manage_repo == 'true') {
       include ::elastic_stack::repo
   }
 

@@ -5,7 +5,9 @@ class filebeats::package {
     'Debian': {
       package {'filebeat':
         ensure  => present,
-        require => Class['::elastic_stack::repo']
+        if ($manage_repo == true) {
+            require => Class['::elastic_stack::repo']
+        }
      }
      Class['apt::update'] -> Package['filebeat']
 
@@ -13,7 +15,7 @@ class filebeats::package {
     'RedHat': {
       package {'filebeat':
         ensure  => present,
-        if $manage_repo == true {
+        if ($manage_repo == true) {
             require => Class['::elastic_stack::repo']
         }
       }

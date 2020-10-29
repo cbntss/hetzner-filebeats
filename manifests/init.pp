@@ -106,7 +106,9 @@ class filebeats (
       include ::elastic_stack::repo
   }
 
-  include ::filebeats::package
+  class {'::filebeats::package':
+    manage_repo         =>  $manage_repo
+  }
 
   class {'::filebeats::service':
     service_bootstrapped => $service_bootstrapped,

@@ -1,19 +1,21 @@
 # Basic setup of filebeats repository and installtion
-# More details see: https://www.elastic.co/guide/en/beats/libbeat/current/setup-repositories.html
-class filebeats::package {
+# More Details see: https://www.elastic.co/guide/en/beats/libbeat/current/setup-repositories.html
+class filebeats::package (
+    Boolean    $manage_repo,
+) {
   case $::osfamily {
     'Debian': {
-      if ($manage_repo == true) {
+      if ($manage_repo = true) {
           Class['::elastic_stack::repo']
       }
       package {'filebeat':
         ensure  => present,
-     }
-     Class['apt::update'] -> Package['filebeat']
+      }
+    Class['apt::update'] -> Package['filebeat']
 
     }
     'RedHat': {
-      if ($manage_repo == true) {
+      if ($manage_repo = true) {
           Class['::elastic_stack::repo']
       }
       package {'filebeat':

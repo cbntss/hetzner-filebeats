@@ -47,7 +47,7 @@ filebeat:
 <% if @modules -%>
 filebeat.modules:
 <% @modules_array.each do | _module | -%>
-- module: <%= _module -%>
+- module: <%= _module %>
 <% end -%>
 <% end -%>
 

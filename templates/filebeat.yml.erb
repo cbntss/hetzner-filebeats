@@ -23,7 +23,7 @@ filebeat:
 <% if prospector['fields'] -%>
     fields:
   <% prospector['fields'].each do |k,v| -%>
-      <%= k %>: '<%= v %>'
+      <%= k %>: "<%= v %>"
   <% end -%>
 <% end -%>
 <% if prospector['fields_under_root'] -%>

@@ -45,9 +45,9 @@ filebeat:
   registry_file: /var/lib/filebeat/registry
 
 <% if @modules -%>
-filebeat.config.modules:
+filebeat.modules:
 <% @modules_array.each do | _module | -%>
-  path: "/etc/filebeat/modules.d/<%= _module %>.yml.disabled"
+- module: <%= _module -%>
 <% end -%>
 <% end -%>
 

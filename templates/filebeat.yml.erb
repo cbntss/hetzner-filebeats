@@ -2,41 +2,44 @@ filebeat:
   prospectors:
 <% @prospectors_array.each do | prospector | -%>
 <% if prospector['input_type'] -%>
-    - type: <%= prospector['input_type'] %>
+  - type: <%= prospector['input_type'] %>
 <% end -%>
-      paths:
+    paths:
 <% prospector['paths'].each do |path| -%>
-        - <%= path %>
+      - <%= path %>
 <% end -%>
 <% if prospector['doc_type'] != '' -%>
-      document_type: <%= prospector['doc_type'] %>
+    document_type: <%= prospector['doc_type'] %>
 <% end -%>
 <% if prospector['tags'] -%>
-      tags: [<%= prospector['tags'].map{|tag| "#{tag}"}.join(',') %>]
+    tags: [<%= prospector['tags'].map{|tag| "#{tag}"}.join(',') %>]
 <% end -%>
 <% if prospector['include_lines'] -%>
-      include_lines: <%= prospector['include_lines'] %>
+    include_lines: <%= prospector['include_lines'] %>
 <% end -%>
 <% if prospector['exclude_lines'] -%>
-      exclude_lines: <%= prospector['exclude_lines'] %>
+    exclude_lines: <%= prospector['exclude_lines'] %>
 <% end -%>
 <% if prospector['fields'] -%>
-      fields:
+    fields:
   <% prospector['fields'].each do |k,v| -%>
-        <%= k %>: '<%= v %>'
+      <%= k %>: '<%= v %>'
   <% end -%>
 <% end -%>
 <% if prospector['json_keys_under_root'] -%>
-      json.keys_under_root: <%= prospector['json_keys_under_root'] %>
+    fields_under_root: <%= prospector['fields_under_root'] %>
+<% end -%>
+<% if prospector['json_keys_under_root'] -%>
+    json.keys_under_root: <%= prospector['json_keys_under_root'] %>
 <% end -%>
 <% if prospector['json_overwrite_keys'] -%>
-      json.overwrite_keys: <%= prospector['json_overwrite_keys'] %>
+    json.overwrite_keys: <%= prospector['json_overwrite_keys'] %>
 <% end -%>
 <% if prospector['json_add_error_key'] -%>
-      json.add_error_key: <%= prospector['json_add_error_key'] %>
+    json.add_error_key: <%= prospector['json_add_error_key'] %>
 <% end -%>
 <% if prospector['json_message_key'] -%>
-      json.message_key: <%= prospector['json_message_key'] %>
+    json.message_key: <%= prospector['json_message_key'] %>
 <% end -%>
 <% end -%>
   registry_file: /var/lib/filebeat/registry

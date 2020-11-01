@@ -13,6 +13,7 @@ class filebeats::params {
   $elasticsearch_template_overwrite          = false
   $elasticsearch_template_path               = ''
   $elasticsearch_username                    = ''
+  $inputs                                    = []
   $logstash_hosts                            = []
   $logstash_index                            = ''
   $logstash_bulk_max_size                    = 2048
@@ -24,7 +25,6 @@ class filebeats::params {
   $logstash_ttl                              = ''
   $manage_repo                               = true
   $modules                                   = []
-  $prospectors                               = []
   $service_bootstrapped                      = true
   $service_state                             = 'running'
   $log_settings                              =  {
